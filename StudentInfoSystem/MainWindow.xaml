@@ -5,8 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentInfoSystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="1086">
     <Grid>
+        <GroupBox Header="Personal Data" x:Name="personalDataGroupBox" Height="131" Margin="362,21,25,0" VerticalAlignment="Top">
+            <StackPanel Height="89">
+                <TextBlock>
+                    <Label Content="Name:"></Label>
+                    <TextBox x:Name="firstNameTextBox" Width="356"></TextBox>
+                </TextBlock>
+                <TextBlock>
+                    <Label Content="Middle name:"></Label>
+                    <TextBox x:Name="middleNameTextBox" Width="330"></TextBox>
+                </TextBlock>
+                <TextBlock>
+                    <Label Content="Last Name:"></Label>
+                    <TextBox x:Name="lastNameTextBox" Width="330"></TextBox>
+                </TextBlock>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Student Information" x:Name="studentInfoGroupBox" Margin="362,169,25,0" VerticalAlignment="Top" Height="192">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0">
+                    <Label Content="Faculty:"></Label>
+                    <TextBox x:Name="facultyTextBox" Width="290"></TextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="0">
+                    <Label Content="Speciality:"></Label>
+                    <TextBox x:Name="specialityTextBox" Width="256"></TextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="0">
+                    <Label Content="Degree:"></Label>
+                    <TextBox x:Name="degreeTextBox" Width="256"></TextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="0">
+                    <Label Content="Status:"></Label>
+                    <TextBox x:Name="statusTextBox" Width="256"></TextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="4" Grid.Column="0">
+                    <Label Content="Faculty Number:"></Label>
+                    <TextBox x:Name="facultyNumberTextBox" Width="256"></TextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="1">
+                    <Label Content="Course:"></Label>
+                    <TextBox x:Name="courseTextBox" Width="256"></TextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="1">
+                    <Label Content="Stream:"></Label>
+                    <TextBox x:Name="streamTextBox" Width="256"></TextBox>
+                </TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="1">
+                    <Label Content="Group:"></Label>
+                    <TextBox x:Name="groupTextBox" Width="256"></TextBox>
+                </TextBlock>
+
+            </Grid>
+        </GroupBox>
+        <Button Content="Submit" x:Name="submitButton" HorizontalAlignment="Left" Margin="369,386,0,0" VerticalAlignment="Top" Click="submitButton_Click"/>
+        <Button Content="Clear" x:Name="clearButton" HorizontalAlignment="Left" Margin="430,386,0,0" VerticalAlignment="Top" Click="clearButton_Click"/>
+        <Button Content="Disable" x:Name="toggleEnableButton" HorizontalAlignment="Left" Margin="484,386,0,0" VerticalAlignment="Top" Click="toggleEnableButton_Click"/>
+        <GroupBox Header="Photo" Margin="24,21,747,28" x:Name="photo">
+            <Image></Image>
+        </GroupBox>
 
     </Grid>
 </Window>
