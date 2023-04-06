@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UserLogin
 {
-    class LoginValidation
+    public class LoginValidation
     {
         private string username;
         private string password;
@@ -71,7 +71,6 @@ namespace UserLogin
                 actionOnError(errorMessage);
                 return false;
             }
-
         }
     }
 }

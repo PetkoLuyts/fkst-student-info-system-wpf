@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UserLogin
 {
-    class User
+    public class User
     {
         public string username { get; set; }
         public string password { get; set; }
