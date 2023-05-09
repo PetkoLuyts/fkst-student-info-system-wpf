@@ -12,7 +12,7 @@ namespace StudentInfoSystem
     {
         public Student GetStudentDataByUser(User user)
         {
-            if (user.number == null)
+            if (string.IsNullOrEmpty(user.facultyNumber))
             {
                 Console.WriteLine("No Faculty number");
 
@@ -21,9 +21,9 @@ namespace StudentInfoSystem
 
             Student student = new Student();
             student = StudentData.TestStudents
-                .FirstOrDefault(s => s.FacultyNumber == user.number);
+                .FirstOrDefault(s => s.FacultyNumber == user.facultyNumber);
 
-            if(student == null)
+            if (student == null)
             {
                 Console.WriteLine("No student with this Faculty number found");
 

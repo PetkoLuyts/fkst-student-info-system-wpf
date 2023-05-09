@@ -28,29 +28,24 @@ namespace StudentInfoSystem
         public List<string> StudStatusChoices { get; set; }
         private StudentInfoContext context = new StudentInfoContext();
 
-
-
         public MainWindow()
         {
             InitializeComponent();
             FillStudStatusChoices();
+
             if (TestStudentsIfEmpty())
             {
                 CopyTestStudents();
             }
-            // this.Title = "Студентска информационна система";
-            StudentInfoContext context = new StudentInfoContext();
-            UserContext userContext = new UserContext();
-            
-        }
 
+            StudentInfoContext context = new StudentInfoContext();
+            UserContext userContext = new UserContext();       
+        }
 
         private void FillStudStatusChoices()
         {
-            // initializing the list
             StudStatusChoices = new List<string>();
 
-            // connection to DB:
             using (IDbConnection connection = new SqlConnection(Properties.Settings.Default.DbConnect))
             {
                 string sqlquery = @"SELECT StatusDescr FROM StudStatus";
@@ -61,17 +56,14 @@ namespace StudentInfoSystem
                 IDataReader reader = command.ExecuteReader();
                 bool notEndOfResult;
                 notEndOfResult = reader.Read();
+
                 while (notEndOfResult)
                 {
-                    // GetString(0) --->>>> there is only one collumn in the table
                     string s = reader.GetString(0);
                     StudStatusChoices.Add(s);
                     notEndOfResult = reader.Read();
                 }
             }
-
-            //statusText.Text = StudStatusChoices.FirstOrDefault();
-
         }
         public bool TestStudentsIfEmpty()
         {
@@ -80,14 +72,7 @@ namespace StudentInfoSystem
                 var queryStudents = context.Students;
                 int countStudents = queryStudents.Count();
 
-                if (countStudents == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return (countStudents == 0);
             }
         }
         public void CopyTestStudents()
@@ -102,18 +87,6 @@ namespace StudentInfoSystem
                 context.SaveChanges();
             }
         }
-
-
-        // add new object of type Student
-        /*Добавете публично свойство на MainWindow от тип Student. 
-        -Ако му се присвои попълнен обект да активира контролите и да ги попълва с неговите
-        данни.
-        -Ако му се присвои непопълнен обект (или null) да изчиства контролите и да ги
-        деактивира.
-        Преизползвайте съществуващите методи.
-        За тестови цели може да поставите временни бутони, които да задават
-        стойности.
-        */
 
         private void clearAllButton_Click(object sender, RoutedEventArgs e)
         {
@@ -167,70 +140,19 @@ namespace StudentInfoSystem
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            //logged = true;
-            if (!logged)
-            {
-                //logged = false;
-                activateAllFieldsButton_Click(sender, e);
-                //showStudentButton_Click(sender, e);
-                int facN = Convert.ToInt32(StudentData.TestStudents[0].FacultyNumber);
-                foreach (Student s in StudentData.TestStudents)
-                {
-                    if (Convert.ToInt32(s.FacultyNumber) < facN)
-                    {
-                        facN = Convert.ToInt32(s.FacultyNumber);
-                    }
-                }
-
-                Student student = new Student();
-                student = StudentData.TestStudents.Where(x => x.FacultyNumber == facN.ToString()).FirstOrDefault();
-
-                firstNameText.Text = student.Name;
-                middleNameText.Text = student.Surname;
-                lastNameText.Text = student.FamilyName;
-                facultyText.Text = student.Faculty;
-                specialtyText.Text = student.Specialty;
-                educationDegreeText.Text = student.QualificationDegree;
-                statusText.Text = student.Status;
-                facultyNumberText.Text = student.FacultyNumber;
-                courseText.Text = student.Course.ToString();
-                potokText.Text = student.Stream.ToString();
-                groupText.Text = student.Group.ToString();
-
-
-                loginButton.Content = "Log Out";
-                logged = true;
-            }
-            else
-            {
-                clearAllButton_Click(sender, e);
-                loginButton.Content = "LOGIN";
-                logged = false;
-            }
-
-
-            //logged = true;
-            //Logout(logged);
-            */
-
-            //open new window to verify:
-
             LoginViewModel viewModel = new LoginViewModel();
 
-            UserAndPassWindow userpasswindowInstance = new UserAndPassWindow(viewModel);
-            // IF ITS JUST SHOW, TWO SEPARATE THREADS ARE CREATED
-            // SHOWDIALOG, DEACTIVATES THE PREVIOUS WINDOW 
-            userpasswindowInstance.ShowDialog();
-
+            UserAndPassWindow userPassWindowInstance = new UserAndPassWindow(viewModel);
+            userPassWindowInstance.ShowDialog();
 
             StudentInfoContext context = new StudentInfoContext();
 
-            string facNum = viewModel.FacultyNumber;
-            Console.WriteLine(facNum);
+            string facultyNumber = viewModel.FacultyNumber;
+            Console.WriteLine(facultyNumber);
+
             foreach (Student student in context.Students)
             {
-                if(student.FacultyNumber == facNum)
+                if(student.FacultyNumber == facultyNumber)
                 {
                     firstNameText.Text = student.FamilyName;
                     middleNameText.Text = student.Surname;
@@ -245,21 +167,20 @@ namespace StudentInfoSystem
                     groupText.Text = student.Group.ToString();
                 }
             }
-
         }
-
 
         private void AddGradeButton_Click(object sender, RoutedEventArgs e)
         {
             int studentId;
-
             string subject = subjectText.Text;
             int value;
-            if(subjectText.Text == String.Empty  || valueText.Text == String.Empty)
+
+            if (subjectText.Text == String.Empty || valueText.Text == String.Empty)
             {
                 MessageBox.Show("Невалидна стойност.");
                 return;
             }
+
             foreach (char c in valueText.Text)
             {
                 if (char.IsLetter(c) || char.IsWhiteSpace(c))
@@ -268,6 +189,7 @@ namespace StudentInfoSystem
                     return;
                 }
             }
+
             foreach (char c in studentIdText.Text)
             {
                 if (char.IsLetter(c) || char.IsWhiteSpace(c))
@@ -279,7 +201,6 @@ namespace StudentInfoSystem
 
             value = int.Parse(valueText.Text);
             studentId = int.Parse(studentIdText.Text);
-
 
             Grade.AddGradeToDatabase(studentId, value, subject);
 

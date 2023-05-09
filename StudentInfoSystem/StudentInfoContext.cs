@@ -22,11 +22,7 @@ namespace StudentInfoSystem
                 {
                     using (var context = new StudentInfoContext())
                     {
-                        var queryStudents = context.Students;
-                        int countStudents = queryStudents.Count();
-
-                        if (countStudents == 0) return true;
-                        else return false;  
+                        return !context.Students.Any();  
                     }
                 }
 
@@ -34,11 +30,7 @@ namespace StudentInfoSystem
                 {
                     using (var context = new StudentInfoContext())
                     {
-                        foreach (Student st in StudentData.TestStudents)
-                        {
-                            context.Students.Add(st);
-                        }
-
+                        context.Students.AddRange(StudentData.TestStudents);
                         context.SaveChanges();
                     }
                 }            

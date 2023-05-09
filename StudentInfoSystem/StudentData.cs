@@ -70,14 +70,15 @@ namespace StudentInfoSystem
         {
             StudentInfoContext context = new StudentInfoContext();
 
+            if (StudentData.TestStudents.All(st => st.FacultyNumber != facNum))
+            {
+                Console.WriteLine("error");
+                return null;
+            }
+
             Student result = (from st in context.Students
                               where st.facultyNumber == facNum
                               select st).First();
-
-            if (result == null)
-            {
-                Console.WriteLine("error");
-            }
 
             return result;
         }
