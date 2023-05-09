@@ -9,7 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentInfoSystem", "StudentInfoSystem\StudentInfoSystem.csproj", "{1B178C2F-2EBF-4F1C-9F07-5ACF4256649D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFhello", "WPFhello\WPFhello.csproj", "{F7F10F48-AB47-446B-B87D-5FF5BA47FC84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFhello", "WPFhello\WPFhello.csproj", "{F7F10F48-AB47-446B-B87D-5FF5BA47FC84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyMVVM", "EasyMVVM\EasyMVVM.csproj", "{BE387700-76CF-4817-8CC5-D4906BD35F8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expenselt", "Expenselt\Expenselt.csproj", "{E7E8DFC8-5F64-409A-9338-13AC44490B46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfExample", "WpfExample\WpfExample.csproj", "{D4820E11-1844-41FA-AC3D-D3F8DF504440}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +35,18 @@ Global
 		{F7F10F48-AB47-446B-B87D-5FF5BA47FC84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7F10F48-AB47-446B-B87D-5FF5BA47FC84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7F10F48-AB47-446B-B87D-5FF5BA47FC84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE387700-76CF-4817-8CC5-D4906BD35F8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE387700-76CF-4817-8CC5-D4906BD35F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE387700-76CF-4817-8CC5-D4906BD35F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE387700-76CF-4817-8CC5-D4906BD35F8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7E8DFC8-5F64-409A-9338-13AC44490B46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7E8DFC8-5F64-409A-9338-13AC44490B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7E8DFC8-5F64-409A-9338-13AC44490B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7E8DFC8-5F64-409A-9338-13AC44490B46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4820E11-1844-41FA-AC3D-D3F8DF504440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4820E11-1844-41FA-AC3D-D3F8DF504440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4820E11-1844-41FA-AC3D-D3F8DF504440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4820E11-1844-41FA-AC3D-D3F8DF504440}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

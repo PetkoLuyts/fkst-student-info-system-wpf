@@ -8,33 +8,36 @@ namespace StudentInfoSystem
 {
     public class Student
     {
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
-        public string LastName { get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
+        public string familyname { get; set; }
+        public string faculty { get; set; }
+        public string specialty { get; set; }
+        public string qualificationDegree { get; set; }
+        public string statusOfStudying { get; set; }
+        public string facultyNumber { get; set; }
+        public int course { get; set; }
+        public int potok { get; set; }
+        public int group { get; set; }
+        public int StudentId { get; set; }
 
-        public string Faculty { get; set; }
-        public string Speciality { get; set; }
-        public string Degree { get; set; }
-        public string Status { get; set; }
 
-        public string FacultyNumber { get; set; }
-        public int Course { get; set; }
-        public int Stream { get; set; }
-        public int GroupNumber { get; set; }
-
-        public override string ToString()
+        public Student() { }
+        public Student(string name, string surname, string familyname, string faculty, string specialty, string qualificationDegree, string statusOfStudying, string facultyNumber, int course, int potok, int group, int studentId)
         {
-            return $"FirstName: {FirstName}\n" +
-                $"LastName: {LastName}\n" +
-                $"MiddleName: {MiddleName}\n" +
-                $"Faculty: {Faculty}\n" +
-                $"Speciality: {Speciality}\n" +
-                $"Degree: {Degree}\n" +
-                $"Status: {Status}\n" +
-                $"FacultyNumber: {FacultyNumber}\n" +
-                $"Course: {Course}\n" +
-                $"Stream: {Stream}\n" +
-                $"GroupNumber: {GroupNumber}\n";
+            this.name = name;
+            this.surname = surname;
+            this.familyname = familyname;
+            this.faculty = faculty;
+            this.specialty = specialty;
+            this.qualificationDegree = qualificationDegree;
+            this.statusOfStudying = statusOfStudying;
+            this.facultyNumber = facultyNumber;
+            this.course = course;
+            this.potok = potok;
+            this.group = group;
+            StudentId = studentId;
         }
+        
     }
 }

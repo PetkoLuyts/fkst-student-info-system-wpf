@@ -5,78 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentInfoSystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="1086">
-    <Grid>
-        <GroupBox Header="Personal Data" x:Name="personalDataGroupBox" Height="131" Margin="362,21,25,0" VerticalAlignment="Top">
-            <StackPanel Height="89">
-                <TextBlock>
-                    <Label Content="Name:"></Label>
-                    <TextBox x:Name="firstNameTextBox" Width="356"></TextBox>
-                </TextBlock>
-                <TextBlock>
-                    <Label Content="Middle name:"></Label>
-                    <TextBox x:Name="middleNameTextBox" Width="330"></TextBox>
-                </TextBlock>
-                <TextBlock>
-                    <Label Content="Last Name:"></Label>
-                    <TextBox x:Name="lastNameTextBox" Width="330"></TextBox>
-                </TextBlock>
-            </StackPanel>
+        Title="Student Information System" Height="450" Width="800">
+    <Grid Name="MainGrid">
+        <Label Content="Име: " HorizontalAlignment="Left" Height="25" Margin="43,40,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Презиме:" HorizontalAlignment="Left" Height="25" Margin="43,68,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Фамилия: " HorizontalAlignment="Left" Height="25" Margin="43,96,0,0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="firstNameText" HorizontalAlignment="Left" Margin="123,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="middleNameText" HorizontalAlignment="Left" Margin="123,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="lastNameText" HorizontalAlignment="Left" Margin="123,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <GroupBox Header="Лична информация" Margin="0,6,0,279" >
         </GroupBox>
-        <GroupBox Header="Student Information" x:Name="studentInfoGroupBox" Margin="362,169,25,0" VerticalAlignment="Top" Height="192">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0">
-                    <Label Content="Faculty:"></Label>
-                    <TextBox x:Name="facultyTextBox" Width="290"></TextBox>
-                </TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="0">
-                    <Label Content="Speciality:"></Label>
-                    <TextBox x:Name="specialityTextBox" Width="256"></TextBox>
-                </TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="0">
-                    <Label Content="Degree:"></Label>
-                    <TextBox x:Name="degreeTextBox" Width="256"></TextBox>
-                </TextBlock>
-                <TextBlock Grid.Row="3" Grid.Column="0">
-                    <Label Content="Status:"></Label>
-                    <TextBox x:Name="statusTextBox" Width="256"></TextBox>
-                </TextBlock>
-                <TextBlock Grid.Row="4" Grid.Column="0">
-                    <Label Content="Faculty Number:"></Label>
-                    <TextBox x:Name="facultyNumberTextBox" Width="256"></TextBox>
-                </TextBlock>
-                <TextBlock Grid.Row="0" Grid.Column="1">
-                    <Label Content="Course:"></Label>
-                    <TextBox x:Name="courseTextBox" Width="256"></TextBox>
-                </TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="1">
-                    <Label Content="Stream:"></Label>
-                    <TextBox x:Name="streamTextBox" Width="256"></TextBox>
-                </TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="1">
-                    <Label Content="Group:"></Label>
-                    <TextBox x:Name="groupTextBox" Width="256"></TextBox>
-                </TextBlock>
-
-            </Grid>
-        </GroupBox>
-        <Button Content="Submit" x:Name="submitButton" HorizontalAlignment="Left" Margin="369,386,0,0" VerticalAlignment="Top" Click="submitButton_Click"/>
-        <Button Content="Clear" x:Name="clearButton" HorizontalAlignment="Left" Margin="430,386,0,0" VerticalAlignment="Top" Click="clearButton_Click"/>
-        <Button Content="Disable" x:Name="toggleEnableButton" HorizontalAlignment="Left" Margin="484,386,0,0" VerticalAlignment="Top" Click="toggleEnableButton_Click"/>
-        <GroupBox Header="Photo" Margin="24,21,747,28" x:Name="photo">
-            <Image></Image>
-        </GroupBox>
-
+        <Label Content="Факултет:" HorizontalAlignment="Left" Height="32" Margin="43,0,0,0" VerticalAlignment="Center" Width="95"/>
+        <Label Content="Специалност:" HorizontalAlignment="Left" Height="32" Margin="43,234,0,0" VerticalAlignment="Top" Width="95"/>
+        <Label Content="ОКС:" HorizontalAlignment="Left" Height="32" Margin="43,271,0,0" VerticalAlignment="Top" Width="95"/>
+        <Label Content="Статус:" HorizontalAlignment="Left" Height="32" Margin="43,308,0,0" VerticalAlignment="Top" Width="95"/>
+        <Label Content="Фак. номер:" HorizontalAlignment="Left" Height="32" Margin="43,345,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox x:Name="facultyText" HorizontalAlignment="Left" Margin="129,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="specialtyText" HorizontalAlignment="Left" Margin="129,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="educationDegreeText" HorizontalAlignment="Left" Margin="129,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <ComboBox x:Name="statusText" HorizontalAlignment="Left" Margin="129,314,0,0" VerticalAlignment="Top" Width="200"
+                  ItemsSource="{Binding RelativeSource = {RelativeSource AncestorType={x:Type Window}}, Path=StudStatusChoices}"/>
+        <TextBox x:Name="facultyNumberText" HorizontalAlignment="Left" Margin="129,352,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <Label Content="Курс:" HorizontalAlignment="Left" Height="32" Margin="413,0,0,0" VerticalAlignment="Center" Width="95"/>
+        <Label Content="Поток:" HorizontalAlignment="Left" Height="32" Margin="413,229,0,0" VerticalAlignment="Top" Width="95"/>
+        <Label Content="Група:" HorizontalAlignment="Left" Height="32" Margin="413,260,0,0" VerticalAlignment="Top" Width="95"/>
+        <Label Content="Оценка:" HorizontalAlignment="Left" Height="32" Margin="413,290,0,0" VerticalAlignment="Top" Width="95"/>
+        <Label Content="Student ID:" HorizontalAlignment="Left" Height="32" Margin="628,275,0,0" VerticalAlignment="Top" Width="94"/>
+        <Label Content="Subject:" HorizontalAlignment="Left" Height="32" Margin="413,318,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox x:Name="studentIdText" HorizontalAlignment="Left" Margin="712,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66"/>
+        <TextBox x:Name="subjectText" HorizontalAlignment="Left" Margin="489,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="courseText" HorizontalAlignment="Left" Margin="489,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="50"/>
+        <TextBox x:Name="valueText" HorizontalAlignment="Left" Margin="489,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="potokText" HorizontalAlignment="Left" Margin="489,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="groupText" HorizontalAlignment="Left" Margin="489,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+        <GroupBox Header="Студентска информация" Margin="0,160,0,0"/>
+        <Button x:Name="addButton" Content="Добави оценка" HorizontalAlignment="Left" Margin="582,355,0,0" VerticalAlignment="Top" Width="186" Click="AddGradeButton_Click" Height="20" RenderTransformOrigin="0.497,2.792"/>
+        <Button x:Name="clearAllButton" Content="ИЗЧИСТИ" HorizontalAlignment="Left" Margin="648,181,0,0" VerticalAlignment="Top" Width="130" Click="clearAllButton_Click"/>
+        <Button x:Name="showStudentButton" Content="ПОКАЖИ СТУДЕНТ" HorizontalAlignment="Left" Margin="648,211,0,0" VerticalAlignment="Top" Width="130" Click="showStudentButton_Click"/>
+        <Button x:Name="deactivateAllFieldsButton" Content="ДЕАКТИВИРАЙ ВСИЧКИ ПОЛЕТА" HorizontalAlignment="Left" Margin="375,385,0,0" VerticalAlignment="Top" Width="200" Click="deactivateAllFieldsButton_Click"/>
+        <Button x:Name="activateAllFieldsButton" Content="АКТИВИРАЙ ВСИЧКИ ПОЛЕТА" HorizontalAlignment="Left" Margin="582,385,0,0" VerticalAlignment="Top" Width="185" Click="activateAllFieldsButton_Click" Height="20"/>
+        <Button x:Name="loginButton" Content="LOGIN" HorizontalAlignment="Left" Margin="648,245,0,0" VerticalAlignment="Top" Width="130" Click="loginButton_Click"/>
     </Grid>
 </Window>
