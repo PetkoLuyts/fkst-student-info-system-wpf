@@ -29,6 +29,7 @@ namespace StudentInfoSystem
         private void submitButton_Click(object sender, RoutedEventArgs e)
         {
             Student student = new Student();
+
             try
             {
                 student.FirstName = firstNameTextBox.Text == string.Empty ? throw new Exception("All fields must be filled out") : firstNameTextBox.Text;
@@ -48,8 +49,6 @@ namespace StudentInfoSystem
                 MessageBox.Show(err.Message);
                 ClearFields();
             }
-
-
         }
         private void clearButton_Click(object sender, RoutedEventArgs e)
         {
