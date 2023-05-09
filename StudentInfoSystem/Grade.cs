@@ -17,22 +17,20 @@ namespace StudentInfoSystem
         public int StudentId { get; set; }
         public Student Student { get; set; }
         public int Value { get; set; }
-
         public string Subject { get; set; }
 
-        // opening a connection to the DB to add an object of type Grade
         public static void AddGradeToDatabase(int studentId, int value, string subject)
         {
             using (var context = new StudentInfoContext())
             {
+                Student student = context.Students
+                    .FirstOrDefault(s => s.StudentId == studentId);
 
-                Student student = context.Students.FirstOrDefault(s => s.StudentId == studentId);
                 if (student == null)
                 {
                     MessageBox.Show("Студентът не е намерен.");
                     return;
                 }
-
 
                 var grade = new Grade
                 {
@@ -40,11 +38,10 @@ namespace StudentInfoSystem
                     Subject = subject,
                     Value = value
                 };
+
                 context.Grades.Add(grade);
                 context.SaveChanges();
             }
         }
-
-
     }
 }

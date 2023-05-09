@@ -54,16 +54,16 @@ namespace StudentInfoSystem
                 
                 if (user.username == usernameTextbox.Text && user.password == passwordTextbox.Text)
                 {
-                    //facultyNumber = user.number;
-                    //Console.WriteLine(facultyNumber.ToString());
+                    //FacultyNumber = user.number;
+                    //Console.WriteLine(FacultyNumber.ToString());
                     MessageBox.Show("Logged successfully");
 
                     viewModel.Username = usernameTextbox.Text;
                     viewModel.Password = passwordTextbox.Text;
-                    viewModel.FacNum = user.number;
+                    viewModel.FacultyNumber = user.number;
 
                     this.Close();
-                    // return user's number --->>> later becomes faculty number and you search through the students by faculty nomber
+                    // return user's number --->>> later becomes Faculty number and you search through the students by Faculty nomber
 
                 }
             }

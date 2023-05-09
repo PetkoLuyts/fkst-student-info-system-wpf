@@ -11,7 +11,7 @@ namespace StudentInfoSystem
     {
         private string username;
         private string password;
-        private string facNum;
+        private string facultyNumber;
 
         public string Username
         {
@@ -33,13 +33,13 @@ namespace StudentInfoSystem
             }
         }
 
-        public string FacNum
+        public string FacultyNumber
         {
-            get => facNum;
+            get => facultyNumber;
             set
             {
-                facNum = value;
-                OnPropertyChanged(nameof(FacNum));
+                facultyNumber = value;
+                OnPropertyChanged(nameof(FacultyNumber));
             }
         }
 

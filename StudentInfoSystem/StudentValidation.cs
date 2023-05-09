@@ -12,29 +12,25 @@ namespace StudentInfoSystem
     {
         public Student GetStudentDataByUser(User user)
         {
-            // Ако в подадения обект от тип User не е посочен факултетен номер или не е 
-            // открит студент по попълненият факултетен номер, да уведомява по някакъв
-            // начин извиквашият функцията.
-            if(user.number == null)
+            if (user.number == null)
             {
-                Console.WriteLine("No faculty number");
+                Console.WriteLine("No Faculty number");
+
                 return null;
             }
 
             Student student = new Student();
-            student = StudentData.TestStudents.FirstOrDefault(s => s.facultyNumber == user.number);
+            student = StudentData.TestStudents
+                .FirstOrDefault(s => s.FacultyNumber == user.number);
 
             if(student == null)
             {
-                // think of another way to notify the one calling this method
-                Console.WriteLine("No student with this faculty number found");
+                Console.WriteLine("No student with this Faculty number found");
+
                 return null;
             }
 
             return student;
-
         }
-
-
     }
 }

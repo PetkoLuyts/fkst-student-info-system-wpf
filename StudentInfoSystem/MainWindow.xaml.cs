@@ -130,17 +130,17 @@ namespace StudentInfoSystem
         {
             Student student = StudentData.TestStudents[0];
 
-            firstNameText.Text = student.familyname;
-            middleNameText.Text = student.surname;
-            lastNameText.Text = student.familyname;
-            facultyText.Text = student.faculty;
-            specialtyText.Text = student.specialty;
-            educationDegreeText.Text = student.qualificationDegree;
-            statusText.Text = student.statusOfStudying;
-            facultyNumberText.Text = student.facultyNumber;
-            courseText.Text = student.course.ToString();
-            potokText.Text = student.potok.ToString();
-            groupText.Text = student.group.ToString();
+            firstNameText.Text = student.FamilyName;
+            middleNameText.Text = student.Surname;
+            lastNameText.Text = student.FamilyName;
+            facultyText.Text = student.Faculty;
+            specialtyText.Text = student.Specialty;
+            educationDegreeText.Text = student.QualificationDegree;
+            statusText.Text = student.Status;
+            facultyNumberText.Text = student.FacultyNumber;
+            courseText.Text = student.Course.ToString();
+            potokText.Text = student.Stream.ToString();
+            groupText.Text = student.Group.ToString();
         }
 
         private void deactivateAllFieldsButton_Click(object sender, RoutedEventArgs e)
@@ -174,29 +174,29 @@ namespace StudentInfoSystem
                 //logged = false;
                 activateAllFieldsButton_Click(sender, e);
                 //showStudentButton_Click(sender, e);
-                int facN = Convert.ToInt32(StudentData.TestStudents[0].facultyNumber);
+                int facN = Convert.ToInt32(StudentData.TestStudents[0].FacultyNumber);
                 foreach (Student s in StudentData.TestStudents)
                 {
-                    if (Convert.ToInt32(s.facultyNumber) < facN)
+                    if (Convert.ToInt32(s.FacultyNumber) < facN)
                     {
-                        facN = Convert.ToInt32(s.facultyNumber);
+                        facN = Convert.ToInt32(s.FacultyNumber);
                     }
                 }
 
                 Student student = new Student();
-                student = StudentData.TestStudents.Where(x => x.facultyNumber == facN.ToString()).FirstOrDefault();
+                student = StudentData.TestStudents.Where(x => x.FacultyNumber == facN.ToString()).FirstOrDefault();
 
-                firstNameText.Text = student.name;
-                middleNameText.Text = student.surname;
-                lastNameText.Text = student.familyname;
-                facultyText.Text = student.faculty;
-                specialtyText.Text = student.specialty;
-                educationDegreeText.Text = student.qualificationDegree;
-                statusText.Text = student.statusOfStudying;
-                facultyNumberText.Text = student.facultyNumber;
-                courseText.Text = student.course.ToString();
-                potokText.Text = student.potok.ToString();
-                groupText.Text = student.group.ToString();
+                firstNameText.Text = student.Name;
+                middleNameText.Text = student.Surname;
+                lastNameText.Text = student.FamilyName;
+                facultyText.Text = student.Faculty;
+                specialtyText.Text = student.Specialty;
+                educationDegreeText.Text = student.QualificationDegree;
+                statusText.Text = student.Status;
+                facultyNumberText.Text = student.FacultyNumber;
+                courseText.Text = student.Course.ToString();
+                potokText.Text = student.Stream.ToString();
+                groupText.Text = student.Group.ToString();
 
 
                 loginButton.Content = "Log Out";
@@ -226,23 +226,23 @@ namespace StudentInfoSystem
 
             StudentInfoContext context = new StudentInfoContext();
 
-            string facNum = viewModel.FacNum;
+            string facNum = viewModel.FacultyNumber;
             Console.WriteLine(facNum);
             foreach (Student student in context.Students)
             {
-                if(student.facultyNumber == facNum)
+                if(student.FacultyNumber == facNum)
                 {
-                    firstNameText.Text = student.familyname;
-                    middleNameText.Text = student.surname;
-                    lastNameText.Text = student.familyname;
-                    facultyText.Text = student.faculty;
-                    specialtyText.Text = student.specialty;
-                    educationDegreeText.Text = student.qualificationDegree;
-                    statusText.Text = student.statusOfStudying;
-                    facultyNumberText.Text = student.facultyNumber;
-                    courseText.Text = student.course.ToString();
-                    potokText.Text = student.potok.ToString();
-                    groupText.Text = student.group.ToString();
+                    firstNameText.Text = student.FamilyName;
+                    middleNameText.Text = student.Surname;
+                    lastNameText.Text = student.FamilyName;
+                    facultyText.Text = student.Faculty;
+                    specialtyText.Text = student.Specialty;
+                    educationDegreeText.Text = student.QualificationDegree;
+                    statusText.Text = student.Status;
+                    facultyNumberText.Text = student.FacultyNumber;
+                    courseText.Text = student.Course.ToString();
+                    potokText.Text = student.Stream.ToString();
+                    groupText.Text = student.Group.ToString();
                 }
             }
 
